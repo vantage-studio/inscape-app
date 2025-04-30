@@ -4,7 +4,9 @@
   "description": "Local development server for Powerhouse Company website",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "mkdir -p public && cp -r index.html css js fonts wp_optimized icons manifest.json 404.html public/",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "http": "^0.0.1-security",
