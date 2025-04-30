@@ -38,6 +38,8 @@ const FONT_MAP = {
 };
 
 const server = http.createServer((req, res) => {
+  console.log(`Received request for: ${req.url}`);
+
   // Add CORS headers
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
@@ -54,11 +56,13 @@ const server = http.createServer((req, res) => {
   const url = req.url;
   if (FONT_MAP[url]) {
     const localPath = path.join(__dirname, "public", FONT_MAP[url]);
+    console.log(`Font request mapped to: ${localPath}`);
     const extname = path.extname(localPath);
     const contentType = MIME_TYPES[extname] || "application/octet-stream";
 
     fs.readFile(localPath, (error, content) => {
       if (error) {
+        console.error(`Error reading font file: ${error.message}`);
         res.writeHead(404);
         res.end("Font not found");
       } else {
@@ -69,11 +73,13 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Handle the root path
-  let filePath =
-    req.url === "/"
-      ? path.join(__dirname, "public", "index.html")
-      : path.join(__dirname, "public", req.url);
+  // Handle the root path and all other paths
+  let filePath = path.join(
+    __dirname,
+    "public",
+    req.url === "/" ? "index.html" : req.url
+  );
+  console.log(`Attempting to serve: ${filePath}`);
 
   // Remove query parameters from filePath
   filePath = filePath.split("?")[0];
@@ -86,21 +92,26 @@ const server = http.createServer((req, res) => {
   fs.readFile(filePath, (error, content) => {
     if (error) {
       if (error.code === "ENOENT") {
+        console.error(`File not found: ${filePath}`);
         // If file not found, serve 404
-        fs.readFile(
-          path.join(__dirname, "public", "404.html"),
-          (error, content) => {
+        const notFoundPath = path.join(__dirname, "public", "404.html");
+        console.log(`Serving 404 page: ${notFoundPath}`);
+        fs.readFile(notFoundPath, (error, content) => {
+          if (error) {
+            res.writeHead(404);
+            res.end("404 Not Found");
+          } else {
             res.writeHead(404, { "Content-Type": "text/html" });
             res.end(content, "utf-8");
           }
-        );
+        });
       } else {
-        // Server error
+        console.error(`Server error: ${error.code}`);
         res.writeHead(500);
         res.end(`Server Error: ${error.code}`);
       }
     } else {
-      // Success
+      console.log(`Successfully serving: ${filePath}`);
       res.writeHead(200, { "Content-Type": contentType });
       res.end(content, "utf-8");
     }
@@ -126,6 +137,7 @@ wss.on("connection", (ws) => {
 if (process.env.NODE_ENV !== "production") {
   server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
+    console.log(`Serving files from: ${path.join(__dirname, "public")}`);
   });
 }
 
