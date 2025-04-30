@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
   // Check if this is a font request that needs to be mapped
   const url = req.url;
   if (FONT_MAP[url]) {
-    const localPath = "." + FONT_MAP[url];
+    const localPath = path.join("./public", FONT_MAP[url]);
     const extname = path.extname(localPath);
     const contentType = MIME_TYPES[extname] || "application/octet-stream";
 
@@ -69,7 +69,8 @@ const server = http.createServer((req, res) => {
   }
 
   // Handle the root path
-  let filePath = req.url === "/" ? "./index.html" : "." + req.url;
+  let filePath =
+    req.url === "/" ? "./public/index.html" : path.join("./public", req.url);
 
   // Remove query parameters from filePath
   filePath = filePath.split("?")[0];
@@ -82,31 +83,10 @@ const server = http.createServer((req, res) => {
   fs.readFile(filePath, (error, content) => {
     if (error) {
       if (error.code === "ENOENT") {
-        // Try to find the file in wp_optimized directory
-        const wpOptimizedPath = path.join(
-          "./wp_optimized",
-          path.basename(filePath)
-        );
-        fs.readFile(wpOptimizedPath, (wpError, wpContent) => {
-          if (wpError) {
-            // Try to find the file in fonts directory
-            const fontsPath = path.join("./fonts", path.basename(filePath));
-            fs.readFile(fontsPath, (fontsError, fontsContent) => {
-              if (fontsError) {
-                // If still not found, serve 404
-                fs.readFile("./404.html", (error, content) => {
-                  res.writeHead(404, { "Content-Type": "text/html" });
-                  res.end(content, "utf-8");
-                });
-              } else {
-                res.writeHead(200, { "Content-Type": contentType });
-                res.end(fontsContent, "utf-8");
-              }
-            });
-          } else {
-            res.writeHead(200, { "Content-Type": contentType });
-            res.end(wpContent, "utf-8");
-          }
+        // If file not found, serve 404
+        fs.readFile("./public/404.html", (error, content) => {
+          res.writeHead(404, { "Content-Type": "text/html" });
+          res.end(content, "utf-8");
         });
       } else {
         // Server error
