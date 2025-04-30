@@ -1,11 +1,11 @@
 {
-  "name": "powerhouse-company-local",
+  "name": "inscape",
   "version": "1.0.0",
   "description": "Local development server for Powerhouse Company website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rm -rf public && mkdir -p public && cp -rp index.html css js fonts wp_optimized manifest.json 404.html public/",
+    "build": "rm -rf public && mkdir -p public && cp -rp index.html css js fonts wp_optimized manifest.json 404.html img images public/",
     "vercel-build": "npm run build"
   },
   "dependencies": {
