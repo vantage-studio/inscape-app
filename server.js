@@ -3,7 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const WebSocket = require("ws");
 
-const PORT = 3000;
+// Use Vercel's PORT or default to 3000
+const PORT = process.env.PORT || 3000;
 
 const MIME_TYPES = {
   ".html": "text/html",
@@ -52,7 +53,7 @@ const server = http.createServer((req, res) => {
   // Check if this is a font request that needs to be mapped
   const url = req.url;
   if (FONT_MAP[url]) {
-    const localPath = path.join("./public", FONT_MAP[url]);
+    const localPath = path.join(__dirname, "public", FONT_MAP[url]);
     const extname = path.extname(localPath);
     const contentType = MIME_TYPES[extname] || "application/octet-stream";
 
@@ -70,7 +71,9 @@ const server = http.createServer((req, res) => {
 
   // Handle the root path
   let filePath =
-    req.url === "/" ? "./public/index.html" : path.join("./public", req.url);
+    req.url === "/"
+      ? path.join(__dirname, "public", "index.html")
+      : path.join(__dirname, "public", req.url);
 
   // Remove query parameters from filePath
   filePath = filePath.split("?")[0];
@@ -84,10 +87,13 @@ const server = http.createServer((req, res) => {
     if (error) {
       if (error.code === "ENOENT") {
         // If file not found, serve 404
-        fs.readFile("./public/404.html", (error, content) => {
-          res.writeHead(404, { "Content-Type": "text/html" });
-          res.end(content, "utf-8");
-        });
+        fs.readFile(
+          path.join(__dirname, "public", "404.html"),
+          (error, content) => {
+            res.writeHead(404, { "Content-Type": "text/html" });
+            res.end(content, "utf-8");
+          }
+        );
       } else {
         // Server error
         res.writeHead(500);
@@ -116,6 +122,12 @@ wss.on("connection", (ws) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+// Only start the server if we're not in a Vercel environment
+if (process.env.NODE_ENV !== "production") {
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+  });
+}
+
+// Export the server for Vercel
+module.exports = server;
