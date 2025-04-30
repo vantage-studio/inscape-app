@@ -1,0 +1,29 @@
+/* Override remote font URLs with local ones */
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Regular.woff2") format("woff2") !important;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Regular.woff") format("woff") !important;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Regular.ttf") format("truetype") !important;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Override any font URLs in the page */
+* {
+  font-family: "Graphik", sans-serif !important;
+}
