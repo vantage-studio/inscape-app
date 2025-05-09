@@ -12,30 +12,12 @@ export default defineConfig({
     outDir: "dist",
     assetsDir: "assets",
     emptyOutDir: true,
-    sourcemap: true,
     rollupOptions: {
       input: {
         main: "./index.html",
-      },
-      output: {
-        manualChunks: undefined,
       },
     },
   },
   publicDir: "public",
   appType: "mpa", // Use Multi-Page Application mode
-  optimizeDeps: {
-    include: ["msw/browser"],
-  },
-  plugins: [
-    {
-      name: "configure-response-headers",
-      configureServer: (server) => {
-        server.middlewares.use((_req, res, next) => {
-          res.setHeader("Service-Worker-Allowed", "/");
-          next();
-        });
-      },
-    },
-  ],
 });
