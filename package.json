@@ -12,13 +12,13 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "dependencies": {
+    "msw": "^2.0.0"
+  },
   "devDependencies": {
-    "msw": "^2.8.1",
-    "vite": "latest"
+    "vite": "^5.0.0"
   },
   "msw": {
-    "workerDirectory": [
-      "public"
-    ]
+    "workerDirectory": "public"
   }
 }

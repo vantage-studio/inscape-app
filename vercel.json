@@ -5,7 +5,8 @@
       "src": "/mockServiceWorker.js",
       "dest": "/mockServiceWorker.js",
       "headers": {
-        "Service-Worker-Allowed": "/"
+        "Service-Worker-Allowed": "/",
+        "Content-Type": "application/javascript"
       }
     },
     {
