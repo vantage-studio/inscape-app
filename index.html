@@ -17766,5 +17766,14 @@
         BIA_VERSION: "2.6",
       };
     </script>
+    <script type="module">
+      // Initialize MSW
+      if (process.env.NODE_ENV === "development") {
+        const { worker } = await import("./src/mocks/index.js");
+        await worker.start({
+          onUnhandledRequest: "bypass",
+        });
+      }
+    </script>
   </body>
 </html>
