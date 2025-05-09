@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/mockServiceWorker.js",
+      "dest": "/mockServiceWorker.js",
+      "headers": {
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
