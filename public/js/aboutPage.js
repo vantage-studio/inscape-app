@@ -3085,24 +3085,24 @@ export const aboutPage = [
         id: 210,
         date: "2019-07-02T09:26:15",
         modified: "2024-04-03T09:06:34",
-        slug: "nanne-de-ru",
+        slug: "chaitanya_padal",
         type: "team",
         title: {
-          rendered: "Nanne de Ru",
+          rendered: "Chaitanya Padal",
         },
         yoast_head:
           '<!-- This site is optimized with the Yoast SEO plugin v18.9 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Nanne de Ru - Powerhouse Company</title>\n<meta name="robots" content="noindex, follow" />\n<meta property="og:locale" content="en_US" />\n<meta property="og:type" content="article" />\n<meta property="og:title" content="Nanne de Ru - Powerhouse Company" />\n<meta property="og:url" content="https://admin.powerhouse-company.com/team/nanne-de-ru/" />\n<meta property="og:site_name" content="Powerhouse Company" />\n<meta property="article:publisher" content="https://www.facebook.com/wegivemeaningtospace/" />\n<meta property="article:modified_time" content="2024-04-03T09:06:34+00:00" />\n<meta name="twitter:card" content="summary_large_image" />\n<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"http://admin.powerhouse-company.com/#website","url":"http://admin.powerhouse-company.com/","name":"Powerhouse Company","description":"We give meaning to space","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http://admin.powerhouse-company.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://admin.powerhouse-company.com/team/nanne-de-ru/#webpage","url":"https://admin.powerhouse-company.com/team/nanne-de-ru/","name":"Nanne de Ru - Powerhouse Company","isPartOf":{"@id":"http://admin.powerhouse-company.com/#website"},"datePublished":"2019-07-02T09:26:15+00:00","dateModified":"2024-04-03T09:06:34+00:00","breadcrumb":{"@id":"https://admin.powerhouse-company.com/team/nanne-de-ru/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://admin.powerhouse-company.com/team/nanne-de-ru/"]}]},{"@type":"BreadcrumbList","@id":"https://admin.powerhouse-company.com/team/nanne-de-ru/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http://admin.powerhouse-company.com/"},{"@type":"ListItem","position":2,"name":"Team","item":"http://admin.powerhouse-company.com/team/"},{"@type":"ListItem","position":3,"name":"Nanne de Ru"}]}]}</script>\n<!-- / Yoast SEO plugin. -->',
         yoast_head_json: {
-          title: "Nanne de Ru - Powerhouse Company",
+          title: "Chaitanya Padal - Studio Inscap",
           robots: {
             index: "noindex",
             follow: "follow",
           },
           og_locale: "en_US",
           og_type: "article",
-          og_title: "Nanne de Ru - Powerhouse Company",
+          og_title: "Chaitanya Padal - Studio Inscape",
           og_url: "https://admin.powerhouse-company.com/team/nanne-de-ru/",
-          og_site_name: "Powerhouse Company",
+          og_site_name: "Studio Inscape",
           article_publisher: "https://www.facebook.com/wegivemeaningtospace/",
           article_modified_time: "2024-04-03T09:06:34+00:00",
           twitter_card: "summary_large_image",
@@ -3113,8 +3113,9 @@ export const aboutPage = [
                 "@type": "WebSite",
                 "@id": "http://admin.powerhouse-company.com/#website",
                 url: "http://admin.powerhouse-company.com/",
-                name: "Powerhouse Company",
-                description: "We give meaning to space",
+                name: "Studio Inscape",
+                description:
+                  "Blending craft, technology, and spatial sensitivity",
                 potentialAction: [
                   {
                     "@type": "SearchAction",
@@ -3133,7 +3134,7 @@ export const aboutPage = [
                 "@id":
                   "https://admin.powerhouse-company.com/team/nanne-de-ru/#webpage",
                 url: "https://admin.powerhouse-company.com/team/nanne-de-ru/",
-                name: "Nanne de Ru - Powerhouse Company",
+                name: "Chaitanya Padal - Studio Inscape",
                 isPartOf: {
                   "@id": "http://admin.powerhouse-company.com/#website",
                 },
@@ -3173,7 +3174,7 @@ export const aboutPage = [
                   {
                     "@type": "ListItem",
                     position: 3,
-                    name: "Nanne de Ru",
+                    name: "Chaitanya Padal",
                   },
                 ],
               },
@@ -3184,10 +3185,10 @@ export const aboutPage = [
           portrait: {
             ID: 1968,
             id: 1968,
-            title: "Powerhouse-Company-Nanne-de-Ru",
-            filename: "Powerhouse-Company-Nanne-de-Ru.jpg",
+            title: "chaitanya_padal",
+            filename: "chaitanya_padal.jpg",
             filesize: 201149,
-            url: "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru.jpg",
+            url: "wp_optimized/team/chaitanya_padal.jpg",
             link: "http://admin.powerhouse-company.com/team/nanne-de-ru/powerhouse-company-nanne-de-ru/",
             alt: "",
             author: "3",
@@ -3206,32 +3207,25 @@ export const aboutPage = [
             width: 2000,
             height: 2000,
             sizes: {
-              thumbnail:
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru-150x150.jpg",
+              thumbnail: "wp_optimized/team/chaitanya_padal.jpg",
               "thumbnail-width": 150,
               "thumbnail-height": 150,
-              medium:
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru-300x300.jpg",
+              medium: "wp_optimized/team/chaitanya_padal.jpg",
               "medium-width": 300,
               "medium-height": 300,
-              medium_large:
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru-768x768.jpg",
+              medium_large: "wp_optimized/team/chaitanya_padal.jpg",
               "medium_large-width": 768,
               "medium_large-height": 768,
-              large:
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru-1024x1024.jpg",
+              large: "wp_optimized/team/chaitanya_padal.jpg",
               "large-width": 1024,
               "large-height": 1024,
-              "1536x1536":
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru.jpg",
+              "1536x1536": "wp_optimized/team/chaitanya_padal.jpg",
               "1536x1536-width": 1536,
               "1536x1536-height": 1536,
-              "2048x2048":
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru.jpg",
+              "2048x2048": "wp_optimized/team/chaitanya_padal.jpg",
               "2048x2048-width": 2000,
               "2048x2048-height": 2000,
-              xlarge:
-                "https://static.powerhouse-company.com/wp-content/uploads/2019/12/11152631/Powerhouse-Company-Nanne-de-Ru-1400x1400.jpg",
+              xlarge: "wp_optimized/team/chaitanya_padal.jpg",
               "xlarge-width": 1400,
               "xlarge-height": 1400,
             },
@@ -3239,8 +3233,8 @@ export const aboutPage = [
           bio: "<p>I founded Powerhouse Company because I wanted to create a team of outstanding professionals – a real powerhouse that would create next-level architecture. I’m proud that we have grown into an international office with the ability to work on an exceptionally wide range of projects, from interiors to train stations and from villas to high rises. We have grown steadily, boosted by the trust that our amazing clients place in our services.<br />\nIn the office what I find most gratifying is the talent of our incredible people and the wonderful times we have with our clients when we’re working together on projects.</p>\n<p>The thing I enjoy most about my job is working with our fantastic clients and architects and engineers. The reason I chose this profession is because I wanted to create meaningful spaces, in which the sum of all the component parts add up to more than all the individual elements.</p>\n<p>My top prediction for architecture and engineering in the future is that they will continue to be of crucial value for the development of our cities. In particular, inner-city redevelopment projects need architects as team players and visionary leaders.</p>\n",
           contacts: {
             phone: "",
-            email: "nanne@powerhouse-company.com",
-            linkedin: "https://www.linkedin.com/in/nannederu",
+            email: "chaitanya@studioinscape.com",
+            linkedin: "https://www.linkedin.com/in/chaitanyapadal",
             extra: false,
           },
           featured_projects: [
