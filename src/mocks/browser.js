@@ -15,11 +15,8 @@ if (isMockingEnabled) {
         url: "/mockServiceWorker.js",
         options: {
           scope: "/",
-          type: "module",
         },
       },
-      // Enable mocking in production
-      mode: "production",
     })
     .then(() => {
       console.log("MSW worker started successfully");
