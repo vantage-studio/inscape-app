@@ -75,7 +75,7 @@
       href="404.html"
       color="#000000"
     />
-
+    <script defer src="/js/mock-api.js" type="module"></script>
     <script defer src="/js/bundle.b143e6737297cdad8cfd.min.js"></script>
 
     <link rel="stylesheet" href="/css/style.b143e6737297cdad8cfd.min.css" />
@@ -17765,15 +17765,6 @@
         greenActsData: { "green-acts": [] },
         BIA_VERSION: "2.6",
       };
-    </script>
-    <script type="module">
-      // Initialize MSW
-      if (process.env.NODE_ENV === "development") {
-        const { worker } = await import("./src/mocks/index.js");
-        await worker.start({
-          onUnhandledRequest: "bypass",
-        });
-      }
     </script>
   </body>
 </html>
