@@ -76,12 +76,18 @@
       color="#000000"
     />
 
+    <style>
+      ._7uqH7g ._2c2vZm:first-child {
+        display: none;
+      }
+    </style>
+
     <script>
-      fetch("http://localhost:8000/wp-json/api/site/homepage")
+      fetch(
+        "http://powerhousecompanyclone-019247f52a9aa6ad7968-202506.local/wp-json/api/site/homepage"
+      )
         .then((res) => res.json())
         .then((data) => {
-          // data.casesData.cases[0].acf.cloud_orientation = "square";
-
           let mockData = {
             appData: {
               searchResults: [],
@@ -13280,12 +13286,10 @@
             greenActsData: { "green-acts": [] },
             BIA_VERSION: "2.6",
           };
-          mockData.casesData = data.casesData;
-          console.log(data.casesData);
-          console.log(mockData.casesData);
+          mockData.casesData = data;
           window.__PRELOADED_STATE__ = mockData;
           console.log(data.casesData);
-          // console.log(window.__PRELOADED_STATE__);
+          console.log(window.__PRELOADED_STATE__);
 
           // Dynamically create and load the bundle script
           const script = document.createElement("script");
