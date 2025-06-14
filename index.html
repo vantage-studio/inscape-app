@@ -184,7 +184,6 @@
             console.error("❌ Failed to load data:", error.message);
           })
           .finally(() => {
-            // Load bundle in all cases
             const script = document.createElement("script");
             script.src = "/js/bundle.b143e6737297cdad8cfd.min.js";
             script.defer = true;
@@ -192,7 +191,6 @@
           });
       });
     </script>
-
     <link rel="stylesheet" href="/css/style.b143e6737297cdad8cfd.min.css" />
   </head>
   <body>

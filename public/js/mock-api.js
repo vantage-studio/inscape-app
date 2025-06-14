@@ -23,37 +23,19 @@ import { beaconOffice } from "./beaconOffice.js";
       const wordpressUrl = "http://inscap-api.local/wp-json/api/site/about";
       console.log("Transforming request to:", wordpressUrl);
       return originalFetch(wordpressUrl, config);
+    } else if (!resource.includes("/api/site/homepage")) {
+      const baseURL = "http://inscap-api.local/wp-json";
+      const wordpressUrl = baseURL + resource;
+
+      // Update config for cross-origin request
+      const updatedConfig = {
+        ...config,
+        credentials: "omit", // Remove same-origin restriction
+        mode: "cors", // Explicitly set CORS mode
+      };
+      return originalFetch(wordpressUrl, updatedConfig);
     }
 
-    // Check if the request is for '/api/site/about'
-
-    // if (typeof resource === "string" && resource.includes("/api/site/about")) {
-    //   console.log(resource);
-    //   const responseConfig = createJsonResponse(aboutPage);
-    //   return new Response(responseConfig.body, responseConfig);
-    // }
-
-    // Check for any project endpoint (e.g., /api/site/chalet-b, /api/site/bunker-tower, etc.)
-    // if (
-    //   typeof resource === "string" &&
-    //   resource.includes("/api/site/rotterdam-central-library")
-    // ) {
-    //   debugger;
-
-    //   const redirectedUrl =
-    //     "https://www.powerhouse-company.com/api/site/rotterdam-central-library";
-
-    //   console.log("Redirecting to:", redirectedUrl);
-    //   return originalFetch(redirectedUrl, config);
-    // }
-
-    // Mock rotterdam-central-library with local beaconOffice data
-    if (resource.includes("/api/site/hourglass")) {
-      const responseConfig = createJsonResponse(beaconOffice);
-      return new Response(responseConfig.body, responseConfig);
-    }
-
-    // For other requests, use the original fetch
     return originalFetch(resource, config);
   };
 
