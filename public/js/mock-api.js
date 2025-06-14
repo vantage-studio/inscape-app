@@ -1,5 +1,5 @@
 // Import the aboutPage data
-import { aboutPage } from "./aboutPage.js";
+// import { aboutPage } from "./aboutPage.js";
 import { beaconOffice } from "./beaconOffice.js";
 
 (function () {
@@ -19,12 +19,19 @@ import { beaconOffice } from "./beaconOffice.js";
   // Override the fetch function
   window.fetch = async (...args) => {
     const [resource, config] = args;
+    if (typeof resource === "string" && resource.includes("/api/site/about")) {
+      const wordpressUrl = "http://inscap-api.local/wp-json/api/site/about";
+      console.log("Transforming request to:", wordpressUrl);
+      return originalFetch(wordpressUrl, config);
+    }
 
     // Check if the request is for '/api/site/about'
-    if (typeof resource === "string" && resource.includes("/api/site/about")) {
-      const responseConfig = createJsonResponse(aboutPage);
-      return new Response(responseConfig.body, responseConfig);
-    }
+
+    // if (typeof resource === "string" && resource.includes("/api/site/about")) {
+    //   console.log(resource);
+    //   const responseConfig = createJsonResponse(aboutPage);
+    //   return new Response(responseConfig.body, responseConfig);
+    // }
 
     // Check for any project endpoint (e.g., /api/site/chalet-b, /api/site/bunker-tower, etc.)
     // if (
@@ -41,7 +48,7 @@ import { beaconOffice } from "./beaconOffice.js";
     // }
 
     // Mock rotterdam-central-library with local beaconOffice data
-    if (resource.includes("/api/site/beacon-office")) {
+    if (resource.includes("/api/site/hourglass")) {
       const responseConfig = createJsonResponse(beaconOffice);
       return new Response(responseConfig.body, responseConfig);
     }

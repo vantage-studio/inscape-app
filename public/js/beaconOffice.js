@@ -5,7 +5,7 @@ export const beaconOffice = [
         id: 4084,
         date: "2022-06-26T14:00:07",
         modified: "2025-01-21T09:01:15",
-        slug: "beacon-office",
+        slug: "hourglass",
         type: "cases",
         title: {
           rendered: "Rotterdam Central Library",

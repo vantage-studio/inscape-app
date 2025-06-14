@@ -25,7 +25,7 @@ export default defineConfig({
     },
   },
   publicDir: "public",
-  appType: "mpa", // Use Multi-Page Application mode
+  // appType: "mpa", // Use Multi-Page Application mode
   optimizeDeps: {
     include: ["react", "react-dom"],
   },
