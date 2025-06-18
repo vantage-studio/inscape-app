@@ -20,11 +20,11 @@ import { beaconOffice } from "./beaconOffice.js";
   window.fetch = async (...args) => {
     const [resource, config] = args;
     if (typeof resource === "string" && resource.includes("/api/site/about")) {
-      const wordpressUrl = "http://inscap-api.local/wp-json/api/site/about";
+      const wordpressUrl = "https://inscap-api.local/wp-json/api/site/about";
       console.log("Transforming request to:", wordpressUrl);
       return originalFetch(wordpressUrl, config);
     } else if (!resource.includes("/api/site/homepage")) {
-      const baseURL = "http://inscap-api.local/wp-json";
+      const baseURL = "https://inscap-api.local/wp-json";
       const wordpressUrl = baseURL + resource;
 
       // Update config for cross-origin request
